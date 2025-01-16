@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://omrichenyosef.github.io/ReactWebside",
+  "homepage": "https://github.com/OmriChenYosef/React-WebSide.git",
 
   "scripts": {
   "dev": "vite",
