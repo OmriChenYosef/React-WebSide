@@ -19,7 +19,8 @@ function App() {
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                   <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-               
+                 <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
+
 
 
                 </div>
