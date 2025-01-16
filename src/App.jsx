@@ -13,7 +13,7 @@ function App() {
              <div className='page' style={{display: 'flex' ,flexDirection: "column"}} >
                  <Header/>
                  <PrimarySearchAppBar/>       
-                <div className='container' style={{display: 'inline' }} >
+                <div className='container'  style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: "10px"}}>
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
