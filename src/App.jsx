@@ -8,18 +8,18 @@ import PrimarySearchAppBar from './components/PrimarySearchAppBar.jsx';
 
 
 function App() {
-  return   <div>
+  return   <div >
 
-             <div className='page' style={{display: 'flex' ,flexDirection: "column"}} >
+             <div className='page' style={{position:"sticky" ,display: 'flex' ,flexDirection: "column"}} >
                  <Header/>
                  <PrimarySearchAppBar/>       
-                <div className='container'  >
+                <div className='container' style={{position:"sticky"}}>
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                   <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-                 <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
+                  
 
                 </div>
                 <Footer />
