@@ -6,10 +6,6 @@ html, body {
     height: 100%;
   }
   
-  .container {
-    width: 100%; /* Ensure content doesn't exceed the viewport width */
-    box-sizing: border-box; /* Include padding and border in width calculation */
-  }
   
 .Header {
     background-color: #4635B1;
@@ -40,14 +36,18 @@ footer p {
 }
 
 .container{
-   position: relative;
+    position: relative;
     display: grid;
     grid-template-columns:repeat(3, 1fr) ;
     gap: 10px;
+    width: 100%;
 }
 @media (max-width: 768px){
     .container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+        position: relative;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
   }
 
 }
