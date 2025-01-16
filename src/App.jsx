@@ -1,31 +1,64 @@
-import React from 'react'
-import Header from './components/Header.jsx'
-import Footer from './components/Footer.jsx'
-import Card from "./components/Card.jsx";
-import PrimarySearchAppBar from './components/PrimarySearchAppBar.jsx';
-
-                          // Icons
-
+import React, { useState, useEffect } from 'react';
+import Header from './PL/components/header.jsx';
+import Footer from './PL/components/Footer.jsx';
+import Card from "./PL/components/Card.jsx";
+import PrimarySearchAppBar from './PL/components/PrimarySearchAppBar.jsx';
+import jsonplaceholderService from './BLL/Service/jsonplaceholderService.js';
+import { handleLoadingScreen, handleNotFoundPost } from './PL/callBacks.jsx';
 
 function App() {
-  return   <div className='container-page' style={{position: "relative" }}>
+  const [posts, setPosts] = useState([]); // State to store posts
+  const [loading, setLoading] = useState(true); // State for loading status
 
-             <div className='page' style={{display: "flex" ,flexDirection: "column"}} >
-                 <Header/>
-                 <PrimarySearchAppBar/>       
-                <div className='container' >
-                 <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-                 <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-                 <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-                  <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-                 <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-                 <Card title="The team" text="text" imgSrc="https://fzstage.ssf.ae/upload/vouchers/img-world-including-5-vat-1700564667144.jpg" />
-                </div>
-                <Footer />
+  // Fetch posts when the component mounts
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const data = await jsonplaceholderService.fetchPosts(); // Fetch posts from service
+        if (data && data.length > 0) {
+          setPosts(data); // Update state with posts
+        } else {
+          console.warn('No posts found');
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error.message);
+      } finally {
+        setLoading(false); // Stop the loading spinner
+      }
+    };
 
-           </div>
+    fetchPosts(); // Call the function
+  }, []); // Run only once on mount
 
-        
-          </div>
+  // Handle loading state
+  if (loading) {
+    return handleLoadingScreen();
+  }
+
+  // Handle no posts found
+  if (!posts || posts.length === 0) {
+    return handleNotFoundPost();
+  }
+
+  return (
+    <div className="container-page" style={{ position: "relative" }}>
+      <div className="page" style={{ display: "flex", flexDirection: "column" }}>
+        <Header />
+        <PrimarySearchAppBar />
+        <div className="container">
+          {posts.map((post) => (
+            <Card
+               // Provide a unique key for React rendering
+              title={post.title}
+              text={post.body}
+              imgSrc= {`https://picsum.photos/200/300?random=${post.id}`}
+            />
+          ))}
+        </div>
+        <Footer />
+      </div>
+    </div>
+  );
 }
-export default App
+
+export default App;
