@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Card(props) {
 
-    return  <CardBootstrap style={{ width: '100%' ,margin: "20px" ,display: "inline-block" }}>
-      <CardBootstrap.Img style={{ padding: '1px', borderRadius:"5%" ,height:"180px", width:"100%"}}  variant="top" src={props.imgSrc} />
+    return  <CardBootstrap style={{ width: '100%',height:"100%" ,margin: "20px" ,display: "inline-block" }}>
+      <CardBootstrap.Img style={{ padding: '1px', borderRadius:"5%" ,height:"50%", width:"100%"}}  variant="top" src={props.imgSrc} />
       <CardBootstrap.Body>
         <CardBootstrap.Title>{props.title}</CardBootstrap.Title>
         <CardBootstrap.Text>
