@@ -35,7 +35,7 @@ footer p {
 .container{
 position: relative;
     display: grid;
-    grid-template-columns:repeat(3, 1fr) ;
+    grid-template-columns:repeat(3, minmax(100px, 1fr)) ;
     gap: 10px;
     width: 100%;
 }
@@ -44,7 +44,7 @@ position: relative;
         position: relative;
         display: grid;
         gap: 10px;
-        grid-template-columns: repeat(2, minmax(150px, 1fr)); 
+        grid-template-columns: repeat(2, minmax(50px, 1fr)); 
         width: 90%;
   }
 
