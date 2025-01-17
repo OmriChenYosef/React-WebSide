@@ -18,8 +18,9 @@ return (
     <div className="page" style={{ display: "flex", flexDirection: "column" }}>
       <Header />
       <PrimarySearchAppBar PostButtonCliked={handlePostButton} />
+      {searchBarPostButton ? true: <h2> You can clike on Post button menu bar to see Posts or search Post by title  </h2>} 
       <div className="container">
-      {searchBarPostButton ? <DisplyCards />: <p> You can clike on Post button menu bar to see Posts or search Post by title  </p>} 
+      {searchBarPostButton && <DisplyCards />} 
       </div>
       <Footer />
     </div>

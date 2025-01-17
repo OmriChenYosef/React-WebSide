@@ -13,7 +13,7 @@ function Card(props) {
       <CardBootstrap.Body>
         <CardBootstrap.Title>{props.title}</CardBootstrap.Title>
         <CardBootstrap.Text>
-        {props.text.split(' ').slice(0, 100).join(' ') + '...'}
+        {props.text.split(' ').slice(0, 45).join(' ') + '...'}
         </CardBootstrap.Text>
       </CardBootstrap.Body>
       <CardBootstrap.Body>
