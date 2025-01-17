@@ -53,17 +53,18 @@ function DisplyCards(){
     return handleNotFoundPost();
   }
   else{
-    return posts.map((post) => (
-      <Card onClick={cardClicked}
-        key={post.id}
-        id={post.id}
-        title={post.title}
-        text={post.body}
-        imgSrc= {`https://picsum.photos/200/300?random=${post.id}`}
+    return <div className="container">
+    {posts.map((post) => (
+      <Card
+        onClick={() => cardClicked(post.id)} // Pass post.id to cardClicked
+        key={post.id} // Unique key for React
+        id={post.id} // Optional: Useful for accessing in Card
+        title={post.title.split(' ').slice(0, 40).join(' ') + '...'} // Pass title as prop
+        text={post.body} // Pass body as prop
+        imgSrc={`https://picsum.photos/200/300?random=${post.id}`} // Dynamic image
       />
-   
-    ));
-
+    ))}
+  </div>
   }
 }
 

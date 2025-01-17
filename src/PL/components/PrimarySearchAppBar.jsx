@@ -18,6 +18,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -77,6 +78,12 @@ export default function PrimarySearchAppBar(props) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const navigate = useNavigate(); 
+
+  const handleCreatePostButton = ()=>{
+    navigate("/create-post");
+
+  }
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -215,7 +222,7 @@ const handleInputChange = (event) => {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            R
+      
           </Typography>
          
           <Search>
@@ -236,11 +243,19 @@ const handleInputChange = (event) => {
           </Search>
 
           <Button
+        
             variant="contained"
              color="primary"
              onClick={() => props.PostButtonCliked() }>
-                             Posts
-                    </Button>
+                            All posts
+               </Button>
+
+               <Button
+            variant="contained"
+             color="primary"
+             onClick={handleCreatePostButton }>
+                             Create post
+               </Button>
 
         
 

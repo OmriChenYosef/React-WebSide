@@ -7,21 +7,18 @@ import DisplyCards from '../PL/DisplyCards.jsx';
 
 function homePage() {
 
-const [searchBarPostButton, setSearchBarPostButton] = useState(false);
-  
-const handlePostButton =() =>{
-  setSearchBarPostButton(true)
+const [SearchBarPostButton, setSearchBarPostButton] = useState(false);
+
+const SearchBarPostButtonCliked =() =>{
+    setSearchBarPostButton(true)
 }
 
 return (
   <div className="container-page" style={{ position: "relative" }}>
     <div className="page" style={{ display: "flex", flexDirection: "column" }}>
       <Header />
-      <PrimarySearchAppBar PostButtonCliked={handlePostButton} />
-      {searchBarPostButton ? true: <h2> You can clike on Post button menu bar to see Posts or search Post by title  </h2>} 
-      <div className="container">
-      {searchBarPostButton && <DisplyCards />} 
-      </div>
+      <PrimarySearchAppBar PostButtonCliked={() =>SearchBarPostButtonCliked()} />
+      {SearchBarPostButton ? <DisplyCards />: <h2> You can clike on Post button menu bar to see Posts or search Post by title  </h2>} 
       <Footer />
     </div>
   </div>
