@@ -11,6 +11,15 @@ const jsonplaceholderService = {
       throw error;
     }
   },
+  fetchPostById : async (postId) =>{
+    try {
+      const response = await jsonplaceholderApi.getPostById(postId);
+      return response.data; // Extract data from the API response
+    } catch (error) {
+      console.error(`Error fetching post for post ID ${postId}:`, error);
+      throw error;
+    }
+  },
 
   // Fetch comments for a specific post
   fetchCommentsByPostId: async (postId) => {

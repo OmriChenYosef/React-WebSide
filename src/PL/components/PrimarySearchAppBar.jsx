@@ -29,8 +29,6 @@ const customTheme = createTheme({
   },
 })
 
-
-
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -72,7 +70,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -94,6 +92,15 @@ export default function PrimarySearchAppBar() {
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+ const handleLoadingScreen = () => {
+    return <h3>Loading...</h3>;
+  };
+
+  
+ const handleNotFoundPost = () => {
+    return <h3>Not found posts</h3>;
   };
 
 
@@ -231,7 +238,7 @@ const handleInputChange = (event) => {
           <Button
             variant="contained"
              color="primary"
-             onClick={() => console.log('Button clicked!')}>
+             onClick={() => props.PostButtonCliked() }>
                              Posts
                     </Button>
 

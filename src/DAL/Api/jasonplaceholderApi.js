@@ -11,6 +11,8 @@ const jsonplaceholderApi = {
 
   // Add a new post
   addNewPost: (postData) => axios.post(`${API_BASE_URL}/posts`, postData),
+
+  getPostById: (id) => axios.get(`${API_BASE_URL}/posts/${id}`),
 };
 
 export default jsonplaceholderApi;
