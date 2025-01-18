@@ -5,27 +5,27 @@ const jsonplaceholderService = {
   fetchPosts: async () => {
     try {
       const response = await jsonplaceholderApi.getPosts();
-      return response.data; // Extract data from the API response
+      return response.data;
     } catch (error) {
       console.error('Error fetching posts:', error);
       throw error;
     }
   },
-  fetchPostById : async (postId) =>{
+  fetchPostById: async (postId) => {
     try {
       const response = await jsonplaceholderApi.getPostById(postId);
-      return response.data; // Extract data from the API response
+      return response.data;
     } catch (error) {
       console.error(`Error fetching post for post ID ${postId}:`, error);
       throw error;
     }
   },
 
-  // Fetch comments for a specific post
+
   fetchCommentsByPostId: async (postId) => {
     try {
       const response = await jsonplaceholderApi.getCommentsByPostId(postId);
-      return response.data; // Extract data from the API response
+      return response.data;
     } catch (error) {
       console.error(`Error fetching comments for post ID ${postId}:`, error);
       throw error;
@@ -36,7 +36,7 @@ const jsonplaceholderService = {
   addNewPost: async (postData) => {
     try {
       const response = await jsonplaceholderApi.addNewPost(postData);
-      return response.data; // Return the created post data
+      return response.data;
     } catch (error) {
       console.error('Error adding a new post:', error);
       throw error;

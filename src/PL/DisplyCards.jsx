@@ -4,47 +4,46 @@ import jsonplaceholderService from '../BLL/Service/jsonplaceholderService.js';
 import { useNavigate } from 'react-router-dom';
 
 
-function DisplyCards(byTitle){
+function DisplyCards(byTitle) {
 
-  console.log(' for:', typeof(str));
-    const [posts, setPosts] = useState([]); // State to store posts
-    const [loading, setLoading] = useState(true); // State for loading status
-    
-    const navigate = useNavigate(); 
-    const cardClicked = (postId) =>{ 
-    
-       navigate(`/post/${postId}`)
-    }
+  console.log(' for:', typeof (str));
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const handleLoadingScreen = () => {
-      <h2>Loading...</h2>
-    }
-  
-    const  handleNotFoundPost = () => {
-      <h2>Not founfed postes</h2>
-    }
+  const navigate = useNavigate();
+  const cardClicked = (postId) => {
+    navigate(`/post/${postId}`)
+  }
 
-  // Fetch posts when the component mounts
+  const handleLoadingScreen = () => {
+    <h2>Loading...</h2>
+  }
+
+  const handleNotFoundPost = () => {
+    <h2>Not founfed postes</h2>
+  }
+
+  // Fetch posts 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const data = await jsonplaceholderService.fetchPosts(); // Fetch posts from service
+        const data = await jsonplaceholderService.fetchPosts();
         if (data && data.length > 0) {
-          setPosts(data); // Update state with posts
+          setPosts(data);
         } else {
           console.warn('No posts found');
         }
       } catch (error) {
         console.error('Error fetching posts:', error.message);
       } finally {
-        setLoading(false); // Stop the loading spinner
+        setLoading(false);
       }
     };
 
-    fetchPosts(); // Call the function
-  }, []); // Run only once on mount
+    fetchPosts();
+  }, []);
 
-  
+
 
   if (loading) {
     return handleLoadingScreen();
@@ -53,22 +52,21 @@ function DisplyCards(byTitle){
   if (!posts || posts.length === 0) {
     return handleNotFoundPost();
   }
-  else{
+  else {
     return <div className="container">
-    { posts.map((post) => (
-     
-     post.title.includes(byTitle.byTitle) ||( byTitle.byTitle === null) ? <Card
-      onClick={() => cardClicked(post.id)} // Pass post.id to cardClicked
-      key={post.id} // Unique key for React
-      id={post.id} // Optional: Useful for accessing in Card
-      title={post.title} // Pass title as prop
-      text={post.body.split(' ').slice(0, 40).join(' ') + '...'} // Pass body as prop
-      imgSrc={`https://picsum.photos/200/300?random=${post.id}`} // Dynamic image
-    /> :console.log("ddd" ,post.title.includes(byTitle.byTitle) ,post.title , byTitle)
-    
-    
-  ))}
-  </div>
+      {posts.map((post) => (
+
+        post.title.includes(byTitle.byTitle) || (byTitle.byTitle === null) ? <Card
+          onClick={() => cardClicked(post.id)}
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          text={post.body.split(' ').slice(0, 40).join(' ') + '...'}
+          imgSrc={`https://picsum.photos/200/300?random=${post.id}`}
+        /> : console.log("ddd", post.title.includes(byTitle.byTitle), post.title, byTitle)
+
+      ))}
+    </div>
   }
 }
 

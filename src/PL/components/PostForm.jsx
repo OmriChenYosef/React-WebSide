@@ -5,13 +5,13 @@ import jsonplaceholderService from '/Users/omri/Desktop/React_Project/my-react-a
 function PostForm() {
   const [postTitle, setPostTitle] = useState(""); // For the title input
   const [postBody, setPostBody] = useState(""); // For the body input
-  const [newPostData, setNewPostData] = useState(null); 
-  const navigate = useNavigate(); // React Router's navigation function
+  const [newPostData, setNewPostData] = useState(null);
+  const navigate = useNavigate();
 
-   // useEffect to handle the POST request when `newPostData` changes
-   useEffect(() => {
+  // useEffect to handle the POST request when `newPostData` changes
+  useEffect(() => {
     const createPost = async () => {
-      if (!newPostData) return; // Do nothing if no data to post
+      if (!newPostData) return;
 
       try {
         const response = await jsonplaceholderService.addNewPost(newPostData);
@@ -27,27 +27,27 @@ function PostForm() {
     };
 
     createPost();
-  }, [newPostData, navigate]); // Trigger only when `newPostData` changes
+  }, [newPostData, navigate]);
 
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form behavior
+    event.preventDefault();
 
-    // Set the data to trigger the useEffect
+
     setNewPostData({
       title: postTitle,
       body: postBody,
-      userId: 1, // Simulated user ID
+      userId: 1,
     });
   };
 
 
 
-   
-  
+
+
 
   return (
-    <div style={{ maxWidth: "400px", margin: "0 auto" }}>
+    <div style={{ maxWidth: "400px", margin: "30px auto", padding: "30px", border: "2px solid  #4635B1" }}>
       <h2>Create a New Post</h2>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {/* Post Title Field */}
