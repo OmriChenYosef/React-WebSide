@@ -31,12 +31,10 @@ function homePage() {
         <Header />
         <PrimarySearchAppBar PostButtonCliked={() => SearchBarPostButtonClicked()} SearchCliked={(text) => SearchBarSearchClicked(text)} />
         {SearchBarSearch || SearchBarPostButton ? (<DisplyCards byTitle={searchValue1} />) : (
-
           <div> <video autoPlay loop muted playsInline width="100%" height="100%" >
             <source src={videoFile} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
           </div>)}
         <Footer />
       </div>

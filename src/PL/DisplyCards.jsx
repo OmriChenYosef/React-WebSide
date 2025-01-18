@@ -61,7 +61,7 @@ function DisplyCards(byTitle) {
           key={post.id}
           id={post.id}
           title={post.title}
-          text={post.body.split(' ').slice(0, 40).join(' ') + '...'}
+          text={post.body}
           imgSrc={`https://picsum.photos/200/300?random=${post.id}`}
         /> : console.log("ddd", post.title.includes(byTitle.byTitle), post.title, byTitle)
 
