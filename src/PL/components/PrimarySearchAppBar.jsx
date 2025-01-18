@@ -101,15 +101,6 @@ export default function PrimarySearchAppBar(props) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
- const handleLoadingScreen = () => {
-    return <h3>Loading...</h3>;
-  };
-
-  
- const handleNotFoundPost = () => {
-    return <h3>Not found posts</h3>;
-  };
-
 
 const [searchValue, setSearchValue] = React.useState('');
 
@@ -119,6 +110,7 @@ const handleInputChange = (event) => {
 
   const handleSearch = () => {
     if (searchValue.trim()) {
+      props.SearchCliked(searchValue.trim());
       console.log('Searching for:', searchValue);
 
     } else {

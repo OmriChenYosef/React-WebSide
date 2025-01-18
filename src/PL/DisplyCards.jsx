@@ -4,8 +4,9 @@ import jsonplaceholderService from '../BLL/Service/jsonplaceholderService.js';
 import { useNavigate } from 'react-router-dom';
 
 
-function DisplyCards(){
+function DisplyCards(byTitle){
 
+  console.log(' for:', typeof(str));
     const [posts, setPosts] = useState([]); // State to store posts
     const [loading, setLoading] = useState(true); // State for loading status
     
@@ -54,16 +55,19 @@ function DisplyCards(){
   }
   else{
     return <div className="container">
-    {posts.map((post) => (
-      <Card
-        onClick={() => cardClicked(post.id)} // Pass post.id to cardClicked
-        key={post.id} // Unique key for React
-        id={post.id} // Optional: Useful for accessing in Card
-        title={post.title.split(' ').slice(0, 40).join(' ') + '...'} // Pass title as prop
-        text={post.body} // Pass body as prop
-        imgSrc={`https://picsum.photos/200/300?random=${post.id}`} // Dynamic image
-      />
-    ))}
+    { posts.map((post) => (
+     
+     post.title.includes(byTitle.byTitle) ? <Card
+      onClick={() => cardClicked(post.id)} // Pass post.id to cardClicked
+      key={post.id} // Unique key for React
+      id={post.id} // Optional: Useful for accessing in Card
+      title={post.title.split(' ').slice(0, 40).join(' ') + '...'} // Pass title as prop
+      text={post.body} // Pass body as prop
+      imgSrc={`https://picsum.photos/200/300?random=${post.id}`} // Dynamic image
+    /> :console.log("ddd" ,post.title.includes(byTitle.byTitle) ,post.title , byTitle)
+    
+    
+  ))}
   </div>
   }
 }
