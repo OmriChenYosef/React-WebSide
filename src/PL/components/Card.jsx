@@ -24,14 +24,15 @@ function Card(props) {
 
 
 
-      <CardBootstrap.Footer style={{
+      <CardBootstrap.Footer onClick={() => { props.onClick(props.id) }} style={{
         position: "absolute",
         bottom: "0",
         width: "100%",
         backgroundColor: "#f8f9fa",
         textAlign: "center",
-      }}>
-        <CardBootstrap.Link onClick={() => { props.onClick(props.id) }} href="#">View post</CardBootstrap.Link>
+        backgroundColor: "#4635B1"
+      }} >View post
+
       </CardBootstrap.Footer>
 
 
