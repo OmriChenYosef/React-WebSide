@@ -61,8 +61,8 @@ function DisplyCards(byTitle){
       onClick={() => cardClicked(post.id)} // Pass post.id to cardClicked
       key={post.id} // Unique key for React
       id={post.id} // Optional: Useful for accessing in Card
-      title={post.title.split(' ').slice(0, 40).join(' ') + '...'} // Pass title as prop
-      text={post.body} // Pass body as prop
+      title={post.title} // Pass title as prop
+      text={post.body.split(' ').slice(0, 40).join(' ') + '...'} // Pass body as prop
       imgSrc={`https://picsum.photos/200/300?random=${post.id}`} // Dynamic image
     /> :console.log("ddd" ,post.title.includes(byTitle.byTitle) ,post.title , byTitle)
     
