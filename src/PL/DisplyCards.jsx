@@ -57,7 +57,7 @@ function DisplyCards(byTitle){
     return <div className="container">
     { posts.map((post) => (
      
-     post.title.includes(byTitle.byTitle) ? <Card
+     post.title.includes(byTitle.byTitle) ||( byTitle.byTitle === null) ? <Card
       onClick={() => cardClicked(post.id)} // Pass post.id to cardClicked
       key={post.id} // Unique key for React
       id={post.id} // Optional: Useful for accessing in Card

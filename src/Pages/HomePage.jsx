@@ -13,12 +13,12 @@ const [searchValue1, setSearchValue1] = useState(null); // Use state for searchV
 
 const SearchBarPostButtonClicked =() =>{
     setSearchBarPostButton(true);
+    setSearchValue1(null);
 }
 
 const SearchBarSearchClicked =(searchValue) =>{
  
     setSearchValue1(searchValue);
-    console.log("SearchBarSearchClicked",searchValue);  
     setSearchBarSearch(true);
 }
 
@@ -27,7 +27,7 @@ return (
     <div className="page" style={{ display: "flex", flexDirection: "column" }}>
       <Header/>
       <PrimarySearchAppBar PostButtonCliked={() =>SearchBarPostButtonClicked()} SearchCliked={(text) =>SearchBarSearchClicked(text)} />
-      {SearchBarSearch ? <DisplyCards byTitle ={searchValue1} />: <h2> You can clike on Post button menu bar to see Posts or search Post by title  </h2>} 
+      {SearchBarSearch || SearchBarPostButton  ? <DisplyCards byTitle ={searchValue1} />: <h2> You can clike on Post button menu bar to see Posts or search Post by title  </h2>} 
       <Footer />
     </div>
   </div>
