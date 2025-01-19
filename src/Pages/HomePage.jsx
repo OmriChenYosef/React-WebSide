@@ -3,7 +3,7 @@ import Header from "../PL/components/header.jsx";
 import Footer from "../PL/components/Footer.jsx";
 import PrimarySearchAppBar from "../PL/components/PrimarySearchAppBar.jsx";
 import DisplyCards from "../PL/DisplyCards.jsx";
-import videoFile from '../../public/225954.mp4'
+import videoFile from '../../public/225954_medium.mp4';
 
 
 function homePage() {
