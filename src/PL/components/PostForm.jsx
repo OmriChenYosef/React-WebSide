@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import jsonplaceholderService from '/Users/omri/Desktop/React_Project/my-react-app/src/BLL/Service/jsonplaceholderService.js'
+import jsonplaceholderService from '../../BLL/Service/jsonplaceholderService'
 
 function PostForm() {
   const [postTitle, setPostTitle] = useState(""); // For the title input
