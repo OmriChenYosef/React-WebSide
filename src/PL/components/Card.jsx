@@ -28,7 +28,6 @@ function Card(props) {
         position: "absolute",
         bottom: "0",
         width: "100%",
-        backgroundColor: "#f8f9fa",
         textAlign: "center",
         backgroundColor: "#4635B1"
       }} >View post

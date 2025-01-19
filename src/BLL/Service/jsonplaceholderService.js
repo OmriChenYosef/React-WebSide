@@ -1,4 +1,4 @@
-import jsonplaceholderApi from '/Users/omri/Desktop/React_Project/my-react-app/src/DAL/Api/jasonplaceholderApi.js';
+import jsonplaceholderApi from '../../DAL/Api/jasonplaceholderApi';
 
 const jsonplaceholderService = {
   // Fetch the list of posts
