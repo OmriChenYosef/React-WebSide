@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "primeicons": "^7.0.0",
-    "primereact": "^10.9.1",
-    "react-bootstrap": "^2.10.7"
-  }
-
-}
